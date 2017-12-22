@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!-- <beans xmlns="http://www.springframework.org/schema/security"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-3.0.xsd
+ http://www.springframework.org/schema/security
+ http://www.springframework.org/schema/security/spring-security-3.0.xsd"> -->
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans 
+             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+             http://www.springframework.org/schema/security
+             http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    <!-- 开发环境可以放置 <debug /> 配置，会输出详细Security处理日志，正式环境建议屏蔽 <debug /> 配置 
+    <debug />
+    -->
+<!-- 	<http pattern="*.jpg" security="none" />
+	<http pattern="*.png" security="none" />
+	<http pattern="*.gif" security="none" />
+	<http pattern="*.css" security="none" />
+	<http pattern="*.js" security="none" />
+	
+	<http pattern="*/CheckcodeServlet*" security="none" />
+	<http pattern="*/noSecurity/*" security="none" />
+	
+    
+	<http pattern="*/services/*" security="none" /> -->
+</beans:beans>

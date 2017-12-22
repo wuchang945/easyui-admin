@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.feed.ecp.users.dao.UsersDao" >
+  <resultMap id="BaseResultMap" type="com.feed.ecp.common.model.Users" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="userName" property="username" jdbcType="VARCHAR" />
+    <result column="passWord" property="password" jdbcType="VARCHAR" />
+    <result column="trueName" property="truename" jdbcType="VARCHAR" />
+    <result column="tellPhone" property="tellphone" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="userGroupCode" property="usergroupcode" jdbcType="VARCHAR" />
+    <result column="userGroupName" property="usergroupname" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="registerTime" property="registertime" jdbcType="TIMESTAMP" />
+    <result column="enterpriseId" property="enterpriseid" jdbcType="VARCHAR" />
+    <result column="enterpriseName" property="enterprisename" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userName, passWord, trueName, tellPhone, icon, userGroupCode, userGroupName, 
+    status, registerTime, enterpriseId, enterpriseName, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from users
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertSelective" parameterType="com.feed.ecp.common.model.Users" >
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        userName,
+      </if>
+      <if test="password != null" >
+        passWord,
+      </if>
+      <if test="truename != null" >
+        trueName,
+      </if>
+      <if test="tellphone != null" >
+        tellPhone,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="usergroupcode != null" >
+        userGroupCode,
+      </if>
+      <if test="usergroupname != null" >
+        userGroupName,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="registertime != null" >
+        registerTime,
+      </if>
+      <if test="enterpriseid != null" >
+        enterpriseId,
+      </if>
+      <if test="enterprisename != null" >
+        enterpriseName,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="truename != null" >
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="tellphone != null" >
+        #{tellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="usergroupcode != null" >
+        #{usergroupcode,jdbcType=VARCHAR},
+      </if>
+      <if test="usergroupname != null" >
+        #{usergroupname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="registertime != null" >
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseid != null" >
+        #{enterpriseid,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null" >
+        #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.feed.ecp.common.model.Users" >
+    update users
+    <set >
+      <if test="username != null" >
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        passWord = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="truename != null" >
+        trueName = #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="tellphone != null" >
+        tellPhone = #{tellphone,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="usergroupcode != null" >
+        userGroupCode = #{usergroupcode,jdbcType=VARCHAR},
+      </if>
+      <if test="usergroupname != null" >
+        userGroupName = #{usergroupname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="registertime != null" >
+        registerTime = #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseid != null" >
+        enterpriseId = #{enterpriseid,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null" >
+        enterpriseName = #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="userLogin" parameterType="com.feed.ecp.common.model.Users" resultMap="BaseResultMap">
+  select <include refid="Base_Column_List" /> from users where username=#{username} and password=#{password}
+  </select> 
+  
+  <select id="getAllSysUsers" parameterType="com.feed.ecp.common.modelDTO.UsersDto" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from users
+  	<where>
+  		<if test="username !=null and username!=''">
+  		and username like '${username}%'
+  		</if>
+  	</where>
+  	 limit #{pagerParams.pageIndex},#{pagerParams.rows}
+  </select>
+  <select id="getAllSysUsersCount" parameterType="com.feed.ecp.common.modelDTO.UsersDto" resultType="int">
+  	select count(1) from users
+  	<where>
+  		<if test="username !=null and username!=''">
+  		and username like '${username}%'
+  		</if>
+  	</where>
+  </select>
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-3.0.xsd">  
+
+    <!-- 引入XFire预配置信息 -->
+    <!-- <import resource="classpath:org/codehaus/xfire/spring/xfire.xml" />
+    
+    <bean id="webAnnotations" class="org.codehaus.xfire.annotations.jsr181.Jsr181WebAnnotations" />  
+    <bean id="jsr181HandlerMapping"  class="org.codehaus.xfire.spring.remoting.Jsr181HandlerMapping">  
+       <property name="xfire" ref="xfire" />  
+       <property name="webAnnotations" ref="webAnnotations" />  
+    </bean>
+    
+    <bean id="addressingHandler" class="org.codehaus.xfire.addressing.AddressingInHandler" />
+    
+    注册WEBSERVICE服务-DEMO
+    <bean id="webServiceDemo" class="com.jschrj.lvs.webservice.demo.WebServiceDemoImpl">
+    </bean>
+    <bean id="getWebServiceDemo" class="org.codehaus.xfire.spring.ServiceBean">
+        <property name="name">
+            <value>webServiceDemo</value>
+        </property>
+        <property name="serviceBean" ref="webServiceDemo" />
+        <property name="serviceClass" value="com.jschrj.lvs.webservice.demo.WebServiceDemo" />
+        <property name="inHandlers">
+            <list>
+                <ref bean="addressingHandler" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="wsxfServiceWS" class="com.jschrj.lvs.webservice.wsxf.WsxfServiceWSImpl" />
+    <bean id="getWsxfServiceWS" class="org.codehaus.xfire.spring.ServiceBean">
+        <property name="name" value="wsxfServiceWS"></property>
+        <property name="namespace" value="wsxfService"></property>
+        <property name="serviceBean" ref="wsxfServiceWS" />
+        <property name="serviceClass" value="com.jschrj.lvs.webservice.wsxf.WsxfServiceWS" />
+        <property name="inHandlers">
+            <list>
+                <ref bean="addressingHandler" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="ssdjServiceWS" class="com.jschrj.lvs.webservice.ssdj.SsdjServiceWSImpl" />
+    <bean id="getSsdjServiceWS" class="org.codehaus.xfire.spring.ServiceBean">
+        <property name="name" value="ssdjServiceWS"></property>
+        <property name="namespace" value="ssdjService"></property>
+        <property name="serviceBean" ref="ssdjServiceWS" />
+        <property name="serviceClass" value="com.jschrj.lvs.webservice.ssdj.SsdjServiceWS" />
+        <property name="inHandlers">
+            <list>
+                <ref bean="addressingHandler" />
+            </list>
+        </property>
+    </bean> -->
+    <!-- 注册WEBSERVICE结束 -->
+    
+</beans>

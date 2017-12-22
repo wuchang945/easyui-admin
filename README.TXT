@@ -1,0 +1,1 @@
+初始版本：springmvc + mybatis +sqlserver/mysql/oracle+easyui+bootstrap+kafka

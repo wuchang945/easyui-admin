@@ -1,0 +1,41 @@
+
+/*css technorati style pagination*/
+
+.technorati {
+    width:640px; height:30px; padding-right: 3px; padding-left: 3px; padding-bottom: 3px; margin: 3px;  text-align: center; float:left; padding-top:15px; /* background:#ffffa7 */;
+}
+.technorati a {
+    border-right: #ccc 1px solid; padding-right: 6px; background-position: 50% bottom; border-top: #ccc 1px solid; padding-left: 6px; font-weight: bold; padding-bottom: 2px; border-left: #ccc 1px solid; color: rgb(66,97,222); margin-right: 8px; padding-top: 2px; border-bottom: #ccc 1px solid; text-decoration: none
+}
+.technorati a:hover {
+    background-image: none; color: #fff; background-color: #4261df
+}
+.technorati a:active {
+    background-image: none; color: #fff; background-color: #4261df
+}
+.technorati span.current {
+    border-right: #16569e 1px solid; border-top: #16569e 1px solid; border-left: #16569e 1px solid;  border-bottom: #16569e 1px solid;  padding-right: 6px; padding-left: 6px; font-weight: bold; padding-bottom: 2px; color: #000; margin-right: 8px; padding-top: 2px
+}
+.technorati span.disabled {
+    border-right: #16569e 1px solid; border-top: #16569e 1px solid; border-left: #16569e 1px solid;  border-bottom: #16569e 1px solid; padding-right: 6px; padding-left: 6px; font-weight: bold; padding-bottom: 2px; color: #000; margin-right: 8px; padding-top: 2px
+}
+
+
+.webcode {
+    width:100%; height:35px; padding-right: 0px; padding-left: 0px; padding-bottom: 3px; margin: 3px;  text-align: center; float:left; padding-top:4px; background:#E0ECFF;
+}
+.webcode a {
+    border-right: #ccc 1px solid; padding-right: 6px; background-position: 50% bottom; border-top: #ccc 1px solid; padding-left: 6px; font-weight: bold; padding-bottom: 2px; border-left: #ccc 1px solid; color: rgb(66,97,222); margin-right: 8px; padding-top: 2px; border-bottom: #ccc 1px solid; text-decoration: none
+}
+.webcode a:hover {
+    background-image: none; color: #fff; background-color: #4261df
+}
+.webcode a:active {
+    background-image: none; color: #fff; background-color: #4261df
+}
+.webcode span.current {
+    border-right: #ccc 1px solid; border-top: #ccc 1px solid; border-left: #ccc 1px solid;  border-bottom: #ccc 1px solid;  padding-right: 6px; padding-left: 6px; font-weight: bold; padding-bottom: 2px; color: #000; margin-right: 8px; padding-top: 2px
+}
+.webcode span.disabled {
+    border-right: #ccc 1px solid; border-top: #ccc 1px solid; border-left: #ccc 1px solid;  border-bottom: #ccc 1px solid; padding-right: 6px; padding-left: 6px; font-weight: bold; padding-bottom: 2px; color: #000; margin-right: 8px; padding-top: 2px
+}

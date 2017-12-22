@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for JPetStore's business layer.
+  - Contains bean references to the transaction manager and to the DAOs in
+  - dataAccessContext-local/jta.xml (see web.xml's "contextConfigLocation").
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+		
+	<!-- 南京与省的信访件同步 定时器 -->
+	<!-- <bean id="xfSyncQuartzJob" class="com.jschrj.lvs.quartz.XfSyncQuartzJob" />
+	
+	<bean id="xfSyncDownloadJobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	    <property name="targetObject">
+	        <ref bean="xfSyncQuartzJob"/>
+	    </property>
+	    <property name="targetMethod">
+	        <value>SyncDownload</value>
+	    </property>
+	    <property name="concurrent" value="false"/>
+	    concurrent 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程
+	</bean>
+	<bean id="xfSyncDownloadDoTime" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+	    <property name="jobDetail">
+	        <ref bean="xfSyncDownloadJobtask"/>
+	    </property>
+	    <property name="repeatInterval">
+	    	<value>180000</value>
+	    </property>
+	</bean>
+	
+	<bean id="xfSyncUploadJobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	    <property name="targetObject">
+	        <ref bean="xfSyncQuartzJob"/>
+	    </property>
+	    <property name="targetMethod">
+	        <value>SyncUpload</value>
+	    </property>
+	    <property name="concurrent" value="false"/>
+	    concurrent 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程
+	</bean>
+	<bean id="xfSyncUploadDoTime" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+	    <property name="jobDetail">
+	        <ref bean="xfSyncUploadJobtask"/>
+	    </property>
+	    <property name="startDelay">
+	    	<value>60000</value>
+	    </property>
+	    <property name="repeatInterval">
+	    	<value>180000</value>
+	    </property>
+	</bean>
+	
+	<bean id="xfSyncReplyFileUploadJobtask" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	    <property name="targetObject">
+	        <ref bean="xfSyncQuartzJob"/>
+	    </property>
+	    <property name="targetMethod">
+	        <value>SyncReplyFileUpload</value>
+	    </property>
+	    <property name="concurrent" value="false"/>
+	    concurrent 是否允许任务并发执行。当值为false时，表示必须等到前一个线程处理完毕后才再启一个新的线程
+	</bean>
+	<bean id="xfSyncReplyFileUploadDoTime" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+	    <property name="jobDetail">
+	        <ref bean="xfSyncReplyFileUploadJobtask"/>
+	    </property>
+	    <property name="startDelay">
+	    	<value>120000</value>
+	    </property>
+	    <property name="repeatInterval">
+	    	<value>180000</value>
+	    </property>
+	</bean>
+	
+	总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 
+	<bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="triggers">
+	        <list>
+	        	
+	            <ref bean="xfSyncDownloadDoTime"/>
+	            <ref bean="xfSyncUploadDoTime"/>
+	            <ref bean="xfSyncReplyFileUploadDoTime"/>
+	            
+	        </list>
+	    </property>
+	</bean> -->
+</beans>

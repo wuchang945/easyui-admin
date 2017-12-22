@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-3.0.xsd
+ http://www.springframework.org/schema/task   
+ http://www.springframework.org/schema/task/spring-task-3.0.xsd ">
+
+    <!-- 注册定时任务开始 -->
+	<!-- <bean id="taskJob" class="com.jschrj.lvs.task.TaskScheduleManager" >
+	</bean>
+	
+    任务列表-开始
+	<bean name="sendSmsTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		调用的类
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		调用类中的方法
+		<property name="targetMethod">
+			<value>sendSms</value>
+		</property>
+	</bean>
+	
+    任务列表-开始
+	<bean name="msgGenerateTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		调用的类
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		调用类中的方法
+		<property name="targetMethod">
+			<value>generateMsg</value>
+		</property>
+	</bean>
+	
+	<bean name="msgHandleTask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		调用的类
+		<property name="targetObject">
+			<ref bean="taskJob" />
+		</property>
+		调用类中的方法
+		<property name="targetMethod">
+			<value>handleMsg</value>
+		</property>
+	</bean>
+    任务列表-结束
+    
+	触发器
+	<bean id="sendSmsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		指向我们的任务
+		<property name="jobDetail" ref="sendSmsTask" />
+		每30秒运行一次
+		<property name="cronExpression" value="0/60 * * * * ?" />
+		<property name="startDelay" value="60000" />
+	</bean>
+	
+	触发器
+	<bean id="msgGenerateTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		指向我们的任务
+		<property name="jobDetail" ref="msgGenerateTask" />
+		每天凌晨00:30运行一次
+		<property name="cronExpression" value="0 */1 * * * ?" />
+	</bean>
+	
+	<bean id="msgHandleTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		指向我们的任务
+		<property name="jobDetail" ref="msgHandleTask" />
+		每天凌晨01:00运行一次
+		<property name="cronExpression" value="10 0 1 * * ?" />
+	</bean>
+
+	调度器 
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				 触发器列表
+				<ref bean="sendSmsTrigger" />
+				 <ref bean="msgHandleTrigger" />
+				 <ref bean="msgGenerateTrigger" />
+			</list>
+		</property>
+		<property name="configLocation" value="classpath:quartz.properties" />
+	</bean> -->
+	<!-- 注册定时任务结束 -->
+
+</beans>

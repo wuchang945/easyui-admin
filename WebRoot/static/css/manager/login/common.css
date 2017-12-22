@@ -1,0 +1,21 @@
+﻿html,body {padding:0;margin:0;width:100%;height:100%;}
+body{font-size:14px; font-family:Verdana, Arial, sans-serif;color:#333;background:#fff;}
+html{overflow:hidden;}
+*{border:none;padding:0;margin:0;}
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, tr {margin:0; padding:0;}
+/*登录界面样式*/
+.loginHeader{ width: 100%; height: 97px; text-align: center; z-index: 1; position: absolute;top: 0px;}
+.loginHeader img{margin: 60px auto;}
+.loginMiddle{width: 100%; height: 200px; position: absolute; top: 200px; text-align: center;}
+.loginContent{width: 460px; height: 200px; background: #EAF5F9; margin: 0 auto; border-radius: 6px;padding-top: 50px;}
+.loginItem{width: 350px; height: 40px; line-height: 40px;margin: 0 auto; margin-bottom: 30px;}
+.loginItem-title{width: 100px; height: 40px; display: block; float: left; background: #2773A5;font-size: 14px; color: #fff; font-weight: bold;}
+.loginItem-title img{position: relative; top: 5px; right: 5px;}
+.loginItem-input{float: left; width: 232px; height: 38px;line-height:38px; padding-left:14px;border:1px solid #2773A5;font-weight:bold;}
+.loginItemSubmit{width: 350px; height: 40px;margin:0 auto;}
+.loginItemSubmit button{padding:10px 20px; background:#7EC82C;border-radius:6px;float:right;font-weight:bold;color:#fff;cursor:pointer;}
+/*系统配置页面*/
+.loginSetting{width: 630px; height: 231px; margin: 0 auto;padding-top:30px;font-size:0; text-align: center;}
+.loginSetting ul{width: 630px;list-style:none;margin:0 auto;}
+.loginSetting ul li{display:inline;margin-left:40px;cursor:pointer;*display: inline;*zoom:1;}
+.loginSetting ul li img{padding-bottom:20px;}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-3.0.xsd
+ http://www.springframework.org/schema/aop 
+http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+ http://www.springframework.org/schema/mvc
+ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd ">
+
+    <!-- 扫描类包，将标注Spring注解的类自动转化Bean，同时完成Bean的注入 -->
+<!--    <context:component-scan base-package="com.jschrj.ecp.**.dao"/>  -->
+     
+     <aop:aspectj-autoproxy proxy-target-class="true" /> 
+	<!--配置控制器的映射-->
+	<context:component-scan base-package="com.feed.ecp" />
+ 	<context:component-scan base-package="com.feed.ecp.**.log" /> 
+	
+<!--  	<bean id="systemLog" class="com.feed.ecp.common.log.SystemLogAspect"></bean>  -->
+
+  
+	
+	<!--2 启动Spring MVC的注解功能,完成请求和注解POJO的映射 -->
+	<mvc:annotation-driven />
+	<!-- <mvc:default-servlet-handler/> --><!-- 配置访问静态资源 -->
+	<mvc:resources mapping="/css/**" location="/css/" />
+	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
+	<mvc:resources mapping="/tools/**" location="/tools/" />
+	
+	<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id="loginInterceptor" class="com.feed.interceptor.LoginInterceptor">
+            <property name="allowUrls">  
+            <list>  
+              <value>/login</value> 
+              <value>/index</value>  
+              <value>/manager/PsTaceAllController</value>  
+              <value>/static</value>
+            </list>  
+          </property>  
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+	<bean id="sessionTimeOutResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+      <property name="exceptionMappings">  
+        <props>  
+          <prop key="com.jschrj.interceptor.SessionTimeoutException">redirect:/login.jsp</prop>  
+        </props>  
+      </property>  
+    </bean>  
+	<!--3 对模型视图名称的解析,在请求时模型视图名称添加前后缀 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView"></property>
+		<property name="prefix" value="/jsp/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+	<!-- 定义信息资源 <fmt:message key="title"/> -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="i18n/messages"></property>
+	</bean>
+	<!--4 Web异常解析处理 -->
+	<!-- <bean id="exceptionResolver" class="com.baobaotao.web.controller.ForumHandlerExceptionResolver"> 
+		<property name="defaultErrorView"> <value>fail</value> </property> <property 
+		name="exceptionMappings"> <props> <prop key="java.lang.RuntimeException">fail</prop> 
+		</props> </property> </bean> -->
+		
+	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 指定所上传文件的总大小不能超过20MB。注意maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->  
+        <property name="maxUploadSize" value="10000000"/>  
+    </bean>  
+      
+    <!-- SpringMVC在超出上传文件限制时，会抛出org.springframework.web.multipart.MaxUploadSizeExceededException -->  
+    <!-- 该异常是SpringMVC在检查上传的文件信息时抛出来的，而且此时还没有进入到Controller方法中 -->  
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <property name="exceptionMappings">
+            <props>  
+                <!-- 遇到MaxUploadSizeExceededException异常时，自动跳转到/jsp/attachment/upload_error.jsp页面 -->  
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">attachment/upload_error</prop>
+                <prop key="java.sql.SQLException">common/sqlException</prop>
+                <!-- <prop key="java.lang.Exception">common/exception</prop> -->
+                <!-- <prop key="org.mybatis.spring.MyBatisSystemException">common/connException</prop> -->  
+            </props>  
+        </property>  
+    </bean>  
+</beans>
