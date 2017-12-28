@@ -76,7 +76,7 @@
 					</td>
 					<td width="12%" align="right" bgcolor="#f1f1f1">出生日期：</td>
 					<td>
-					<input type="text" class="easyui-datebox" id="birthday" editable="false" name="birthday" value=""/>
+					<input type="text" class="easyui-datetimebox" id="birthday" editable="false" name="birthday" value=""/>
 					</td>
 				</tr>
 			</table>
